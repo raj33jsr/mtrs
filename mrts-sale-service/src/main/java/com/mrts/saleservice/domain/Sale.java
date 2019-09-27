@@ -33,8 +33,8 @@ public class Sale implements Serializable {
     @Field(value = "startDate")
     private Date startDate;
 
-    @Field(value = "enddate")
-    private Date enddate;
+    @Field(value = "endDate")
+    private Date endDate;
 
     /**
      * @return the id
@@ -99,16 +99,16 @@ public class Sale implements Serializable {
     /**
      * @return the enddate
      */
-    public Date getEnddate() {
-        return enddate;
+    public Date getEndDate() {
+        return endDate;
     }
 
     /**
      * @param enddate
      *            the enddate to set
      */
-    public void setEnddate(Date enddate) {
-        this.enddate = enddate;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
 }
