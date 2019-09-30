@@ -4,6 +4,8 @@
 package com.mrts.fareservice.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,10 +25,14 @@ import com.mrts.fareservice.service.MrtsFareService;
  */
 @RestController
 @RequestMapping("fares")
+@RefreshScope
 public class MrtsFareRest {
 	
 	@Autowired
 	MrtsFareService mrtsFareService;
+	
+	@Value("${demo.value.test}")
+	String demoVal;
 	
 	@GetMapping
 	public FareResp getFares() {
@@ -41,6 +47,11 @@ public class MrtsFareRest {
 		Fare fare;
 		fare = mrtsFareService.getFareByTicketId(ticketId);
 		return fare;
+	}
+	
+	@GetMapping("/val")
+	public String getStaticvalue() {
+		return demoVal; 
 	}
 	
 	@PostMapping
